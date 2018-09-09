@@ -2,7 +2,7 @@ require 'rspec'
 require 'grants_cap'
 
 RSpec.describe 'GrantsCap' do
-  let(:array) { [1, 4] }
+  let(:array) { [2, 4] }
   let(:budget) { 3 }
   describe 'find_grants_cap' do
     it 'gives you the cap' do

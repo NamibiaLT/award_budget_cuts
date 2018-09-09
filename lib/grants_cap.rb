@@ -19,16 +19,18 @@ class GrantsCap
     return newBudget
   end
 
+
   def self.max_grant(grantsArray, newBudget)
+    grant_cap = 0
+
     grantsArray.each do |grant|
-      binding.pry
-      if grant > sample_cap(grantsArray, newBudget) && split_new_budget(grantsArray, newBudget) < newBudget
-        max = split_new_budget(grantsArray, newBudget)/ large_grants_size(grantsArray, newBudget)
-      elsif grant > sample_cap(grantsArray, newBudget) && split_new_budget(grantsArray, newBudget) == nil
-        max = grantsArray/large_grants_size(grantsArray, newBudget)
+      if split_new_budget(grantsArray, newBudget) < newBudget
+        grant_cap = split_new_budget(grantsArray, newBudget)/ large_grants_size(grantsArray, newBudget).to_f
+      elsif split_new_budget(grantsArray, newBudget) == newBudget
+        grant_cap = newBudget.to_f / large_grants_size(grantsArray, newBudget)
       end
     end
-    return max
+    return grant_cap
   end
 
   # def self.grant_max(grantsArray, newBudget)
