@@ -2,8 +2,8 @@ require 'pry'
 
 # Find the sample grants cap: divide the budget by the total number of grants
 # Use the sample grants cap to determine if a grant is above or below that value
-# If a grant is below that value, the grant does not change, if it is above that value than mark it for change
-# Finish: Use the number of grants that need to change plus the number of grants that don't change to set a new grants cap
+# If a grant is below that value, the grant does not change, and subtract that grant from the new grant budget
+# Finish: Use the total number of grants that need to change to set a new grants cap
 class GrantsCap
   def self.find_grants_cap(grantsArray, newBudget)
     max_grant(grantsArray, newBudget)
