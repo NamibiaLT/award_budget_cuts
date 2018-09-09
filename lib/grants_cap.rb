@@ -11,12 +11,11 @@ class GrantsCap
 
   def self.split_new_budget(grantsArray, newBudget)
     grantsArray.each do |grant|
-      # binding.pry
       if grant <= sample_cap(grantsArray, newBudget)
         newBudget -= grant
       end
     end
-    return newBudget
+    newBudget
   end
 
 
@@ -30,17 +29,8 @@ class GrantsCap
         grant_cap = newBudget.to_f / large_grants_size(grantsArray, newBudget)
       end
     end
-    return grant_cap
+    grant_cap
   end
-
-  # def self.grant_max(grantsArray, newBudget)
-  #   grantsArray.map do |grant|
-  #     if grant > sample_cap(grantsArray, newBudget)
-  #       max = new_large_grant_budget.to_f/ large_grants_size(grantsArray, newBudget)
-  #     end
-  #   end
-  #   max
-  # end
 
   private
 
@@ -52,20 +42,4 @@ class GrantsCap
   def self.sample_cap(grantsArray, newBudget)
     newBudget.to_f/ grantsArray.size
   end
-
-  # def self.new_grant_max(grantsArray, newBudget)
-  #   binding.pry
-  #   split_new_budget(grantsArray, newBudget) / large_grants_size(grantsArray)
-  # end
-
-  # def self.new_grants_array(grantsArray, newBudget)
-  #   grantsArray.map do |grant|
-  #     # binding.pry
-  #     if grant < sample_cap(grantsArray, newBudget)
-  #       grant
-  #     elsif grant > sample_cap(grantsArray, newBudget)
-  #       new_grant_max(grantsArray, newBudget)
-  #     end
-  #   end
-  # end
 end
